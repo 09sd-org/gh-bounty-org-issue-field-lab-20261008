@@ -1,0 +1,11 @@
+name: Issue Comment Policy Probe
+on:
+  issue_comment:
+    types: [created]
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo GH_BOUNTY_ACTION_POLICY_PROBE_20261008
