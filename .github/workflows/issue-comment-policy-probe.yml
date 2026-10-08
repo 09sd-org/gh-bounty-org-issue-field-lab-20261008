@@ -2,6 +2,8 @@ name: Issue Comment Policy Probe
 on:
   issue_comment:
     types: [created]
+  issues:
+    types: [opened]
 permissions:
   contents: read
 jobs:
