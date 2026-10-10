@@ -1,0 +1,17 @@
+name: Owned org-only issue-field event probe
+
+on:
+  issues:
+    types: [field_added]
+
+permissions:
+  contents: read
+
+jobs:
+  echo_event:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo GH_BOUNTY_HIDDEN_FIELD_EVENT_20261010_T8M2
+          echo action=${{ github.event.action }}
+          echo issue=${{ github.event.issue.number }}
