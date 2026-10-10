@@ -2,7 +2,7 @@ name: Owned org-only issue-field event probe
 
 on:
   issues:
-    types: [field_added]
+    types: [opened, field_added]
 
 permissions:
   contents: read
