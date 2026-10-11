@@ -3,15 +3,24 @@ name: Owned org-only issue-field event probe
 on:
   issues:
     types: [opened, field_added]
+  workflow_run:
+    workflows: [GHB policy parent probe]
+    types: [completed]
 
 permissions:
   contents: read
 
 jobs:
   echo_event:
+    if: github.event_name == 'issues'
     runs-on: ubuntu-latest
     steps:
       - run: |
           echo GH_BOUNTY_HIDDEN_FIELD_EVENT_20261010_T8M2
           echo action=${{ github.event.action }}
           echo issue=${{ github.event.issue.number }}
+  echo_chain:
+    if: github.event_name == 'workflow_run'
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo GH_BOUNTY_POLICY_WORKFLOW_RUN_CHILD_20261010
