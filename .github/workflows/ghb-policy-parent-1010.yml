@@ -1,15 +1,15 @@
 name: GHB policy parent probe
 
 on:
-  issue_comment:
-    types: [created]
+  issues:
+    types: [reopened]
 
 permissions:
   contents: read
 
 jobs:
   echo_parent:
-    if: github.event.issue.number == 1 && github.event.comment.body == 'GH_BOUNTY_WORKFLOW_RUN_PARENT_20261010'
+    if: github.event.issue.number == 9
     runs-on: ubuntu-latest
     steps:
       - run: echo GH_BOUNTY_POLICY_PARENT_20261010
