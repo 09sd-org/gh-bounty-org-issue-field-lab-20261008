@@ -2,14 +2,14 @@ name: GHB policy parent probe
 
 on:
   issues:
-    types: [reopened]
+    types: [opened]
 
 permissions:
   contents: read
 
 jobs:
   echo_parent:
-    if: github.event.issue.number == 9
+    if: github.event.issue.title == 'GH_BOUNTY_POLICY_CHAIN_20261010'
     runs-on: ubuntu-latest
     steps:
       - run: echo GH_BOUNTY_POLICY_PARENT_20261010
